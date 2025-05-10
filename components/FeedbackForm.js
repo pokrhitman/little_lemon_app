@@ -1,14 +1,14 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import GlobalStyles from "../styles/GlobalStyles";
-import { 
-    ScrollView, 
-    Text, 
-    TextInput, 
-    Pressable, 
-    View, 
-    KeyboardAvoidingView, 
+import {
+    ScrollView,
+    Text,
+    TextInput,
+    Pressable,
+    View,
+    KeyboardAvoidingView,
     Platform,
- } from "react-native";
+} from "react-native";
 
 const FeedbackForm = () => {
     const [firstName, onChangeFirstName] = useState('');
@@ -39,76 +39,82 @@ const FeedbackForm = () => {
 
     return (
         <KeyboardAvoidingView
-        style={GlobalStyles.container}
-        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+            style={GlobalStyles.container}
+            behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         >
-    
-        <ScrollView contentContainerStyle={GlobalStyles.scrollContainer}>
-            <View style={GlobalStyles.introContainer}>
-                <Text style={GlobalStyles.sectionHeading}>
-                    Little Lemon is a charming neighborhood bistro that serves simple food and classic cocktails in a lively but casual environment. We would love to hear your experience with us!
-                </Text>
-            </View>
 
-            
+            <ScrollView contentContainerStyle={GlobalStyles.scrollContainer}>
+                <View style={GlobalStyles.introContainer}>
+                    <Text style={GlobalStyles.sectionHeading}>
+                        Little Lemon is a charming neighborhood bistro that serves simple food and classic cocktails in a lively but casual environment. We would love to hear your experience with us!
+                    </Text>
+                </View>
 
-            <View style={GlobalStyles.formContainer}>
-                
-            <Text style={GlobalStyles.sectionSubheading}>
-                How was your visit to Little Lemon?
-            </Text>
 
-            {submitted && (
-                <Text style={GlobalStyles.loginSuccessMessage}>
-                    Thank you for your feedback!
-                </Text>
-            )}
 
-                <Text style={GlobalStyles.label}>First Name</Text>
-                <TextInput
-                    style={[GlobalStyles.inputBase, GlobalStyles.input]}
-                    value={firstName}
-                    onChangeText={onChangeFirstName}
-                    placeholder="Enter your first name"
-                    placeholderTextColor='#888'
-                />
+                <View style={GlobalStyles.formContainer}>
 
-                <Text style={GlobalStyles.label}>Last Name</Text>
-                <TextInput
-                    style={[GlobalStyles.inputBase, GlobalStyles.input]}
-                    value={lastName}
-                    onChangeText={onChangeLastName}
-                    placeholder="Enter your last name"
-                    placeholderTextColor='#888'
-                />
+                    <Text style={GlobalStyles.sectionSubheading}>
+                        How was your visit to Little Lemon?
+                    </Text>
 
-                <Text style={GlobalStyles.label}>Phone Number</Text>
-                <TextInput
-                    style={[GlobalStyles.inputBase, GlobalStyles.input]}
-                    value={phoneNumber}
-                    onChangeText={onChangePhoneNumber}
-                    placeholder="Enter your phone number"
-                    keyboardType="phone-pad"
-                    placeholderTextColor='#888'
-                />
+                    {submitted && (
+                        <Text style={GlobalStyles.loginSuccessMessage}>
+                            Thank you for your feedback!
+                        </Text>
+                    )}
 
-                <Text style={GlobalStyles.label}>Your Message</Text>
-                <TextInput
-                    style={[GlobalStyles.inputBase, GlobalStyles.messageInput]}
-                    value={message}
-                    onChangeText={onChangeMessage}
-                    placeholder="Leave your feedback here"
-                    multiline={true}
-                    maxLenght={250}
-                    placeholderTextColor='#888'
-                />
+                    <Text style={GlobalStyles.label}>First Name</Text>
+                    <TextInput
+                        style={[GlobalStyles.inputBase, GlobalStyles.input]}
+                        value={firstName}
+                        onChangeText={onChangeFirstName}
+                        placeholder="Enter your first name"
+                        placeholderTextColor='#888'
+                    />
 
-                <Pressable style={GlobalStyles.submitButton} onPress={handleSubmit}>
-                    <Text style={GlobalStyles.submitButtonText}>Submit</Text>
-                </Pressable>
-            </View>
-        </ScrollView>
-    </KeyboardAvoidingView>
+                    <Text style={GlobalStyles.label}>Last Name</Text>
+                    <TextInput
+                        style={[GlobalStyles.inputBase, GlobalStyles.input]}
+                        value={lastName}
+                        onChangeText={onChangeLastName}
+                        placeholder="Enter your last name"
+                        placeholderTextColor='#888'
+                    />
+
+                    <Text style={GlobalStyles.label}>Phone Number</Text>
+                    <TextInput
+                        style={[GlobalStyles.inputBase, GlobalStyles.input]}
+                        value={phoneNumber}
+                        onChangeText={onChangePhoneNumber}
+                        placeholder="Enter your phone number"
+                        keyboardType="phone-pad"
+                        placeholderTextColor='#888'
+                    />
+
+                    <Text style={GlobalStyles.label}>Your Message</Text>
+                    <TextInput
+                        style={[GlobalStyles.inputBase, GlobalStyles.messageInput]}
+                        value={message}
+                        onChangeText={onChangeMessage}
+                        placeholder="Leave your feedback here"
+                        multiline={true}
+                        maxLength={250}
+                        placeholderTextColor='#888'
+                    />
+
+                    <Pressable
+                        onPress={handleSubmit}
+                        style={({ pressed }) => [
+                            GlobalStyles.submitButton,
+                            pressed && GlobalStyles.submitButtonPressed,
+                        ]}
+                    >
+                        <Text style={GlobalStyles.submitButtonText}>Submit</Text>
+                    </Pressable>
+                </View>
+            </ScrollView>
+        </KeyboardAvoidingView>
     );
 };
 
