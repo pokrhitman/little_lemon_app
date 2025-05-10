@@ -1,4 +1,3 @@
-import React from 'react';
 import GlobalStyles from '../styles/GlobalStyles';
 import { View, Text } from 'react-native';
 

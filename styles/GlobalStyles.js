@@ -1,4 +1,4 @@
-import { StyleSheet, Dimensions } from "react-native";
+import { StyleSheet, Dimensions, Platform } from "react-native";
 
 const windowWidth = Dimensions.get('window').width;
 
@@ -57,20 +57,72 @@ const GlobalStyles = StyleSheet.create({
     // 🎯 Button Styles
     //------------------------------
 
-    button: {
+    loginButton: {
         backgroundColor: '#F4CE14',
         paddingVertical: 12,
-        paddingHorizontal: 20,
-        borderRadius: 10,
+        paddingHorizontal: 24,
+        borderRadius: 8,
         alignItems: 'center',
         marginTop: 20,
+
+        ...Platform.select({
+            ios: {
+                shadowColor: '#000',
+                shadowOpacity: 0.2,
+                shadowRadius: 4,
+                shadowOffset: { width: 0, height: 2 },
+            },
+            android: { elevation: 3 },
+        }),
     },
 
-    buttonText: {
+    loginButtonPressed: {
+        opacity: 0.75,
+    },
+
+    loginButtonText: {
         color: '#333',
         fontSize: 16,
         fontWeight: 'bold',
     },
+
+    loginSuccessMessage: {
+        fontSize: 18,
+        color: '#228822',
+        fontWeight: '500',
+        marginVertical: 20,
+        textAlign: 'center',
+    },
+
+    submitButton: {
+        backgroundColor: '#F4CE14',
+        paddingVertical: 12,
+        paddingHorizontal: 24,
+        borderRadius: 8,
+        alignItems: 'center',
+        marginTop: 20,
+
+        ...Platform.select({
+            ios: {
+                shadowColor: '#000',
+                shadowOpacity: 0.2,
+                shadowRadius: 4,
+                shadowOffset: { width: 0, height: 2 },
+            },
+            android: { elevation: 3 },
+        }),
+    },
+
+    submitButtonPressed: {
+        opacity: 0.75,
+    },
+
+    submitButtonText: {
+        color: '#333',
+        fontSize: 16,
+        fontWeight: 'bold',
+    },
+
 
     // -------------------------------
     // 🧩 Section Layout & Containers

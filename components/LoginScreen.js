@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from "react";
 import {
     ScrollView,
     Text,
@@ -44,40 +44,49 @@ export default function LoginScreen() {
 
                 <View style={GlobalStyles.loginContainer}>
 
-                <Text style={GlobalStyles.loginHeaderText}>Welcome to Little Lemon</Text>
-                <Text style={GlobalStyles.regularText}>Login to continue</Text>
+                    <Text style={GlobalStyles.loginHeaderText}>Welcome to Little Lemon</Text>
+                    <Text style={GlobalStyles.regularText}>Login to continue</Text>
 
-                {submitted && (
+                    {submitted ? (
                         <Text style={GlobalStyles.loginSuccessMessage}>
                             You are logged in!
                         </Text>
+                    ) : (
+
+                        <>
+                            <Text style={GlobalStyles.label}>Email</Text>
+                            <TextInput
+                                style={[GlobalStyles.inputBase, GlobalStyles.input]}
+                                value={email}
+                                onChangeText={setEmail}
+                                placeholder='Enter your email'
+                                keyboardType='email-address'
+                                autoCapitalize='none'
+                                placeholderTextColor='#666'
+                                clearButtonMode='while-editing'
+                            />
+
+                            <Text style={GlobalStyles.label}>Password</Text>
+                            <TextInput
+                                style={[GlobalStyles.inputBase, GlobalStyles.input]}
+                                value={password}
+                                onChangeText={setPassword}
+                                placeholder='Enter your password'
+                                secureTextEntry={true}
+                                placeholderTextColor='#666'
+                            />
+
+                            <Pressable
+                                onPress={handleLogin}
+                                style={({ pressed }) => [
+                                    GlobalStyles.loginButton,
+                                    pressed && GlobalStyles.loginButtonPressed,
+                                ]}
+                            >
+                                <Text style={GlobalStyles.loginButtonText}>Login</Text>
+                            </Pressable>
+                        </>
                     )}
-
-                    <Text style={GlobalStyles.label}>Email</Text>
-                    <TextInput
-                        style={[GlobalStyles.inputBase, GlobalStyles.input]}
-                        value={email}
-                        onChangeText={setEmail}
-                        placeholder='Enter your email'
-                        keyboardType='email-address'
-                        autoCapitalize='none'
-                        placeholderTextColor='#666'
-                        clearButtonMode='while-editing'
-                    />
-
-                    <Text style={GlobalStyles.label}>Password</Text>
-                    <TextInput
-                        style={[GlobalStyles.inputBase, GlobalStyles.input]}
-                        value={password}
-                        onChangeText={setPassword}
-                        placeholder='Enter your password'
-                        secureTextEntry={true}
-                        placeholderTextColor='#666'
-                    />
-
-                    <Pressable style={GlobalStyles.button} onPress={handleLogin}>
-                        <Text style={GlobalStyles.buttonText}>Login</Text>
-                    </Pressable>
                 </View>
             </ScrollView>
         </KeyboardAvoidingView>

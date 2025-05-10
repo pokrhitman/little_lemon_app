@@ -1,4 +1,3 @@
-import React from 'react';
 import { Text, View, SectionList } from 'react-native';
 import GlobalStyles from '../styles/GlobalStyles';
 import { menuItemsToDisplay } from '../data/menuData';
