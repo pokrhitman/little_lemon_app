@@ -125,6 +125,17 @@ const GlobalStyles = StyleSheet.create({
 
 
     // -------------------------------
+    // Logo Layouts
+    // ------------------------------
+
+    logo: {
+        width: Dimensions.get('window').width*0.10,
+        height: Dimensions.get('window').width*0.10,
+        marginRight: 12,
+    },
+
+
+    // -------------------------------
     // 🧩 Section Layout & Containers
     // ------------------------------
 
@@ -395,19 +406,25 @@ const GlobalStyles = StyleSheet.create({
     // -----------------------------
 
     welcomeContainer: {
+        flex: 1,
+        justifyContent: 'center',
         backgroundColor: '#660000',
         alignItems: 'center',
-        paddingVertical: Dimensions.get('window').height * 0.02,
-        paddingHorizontal: 20,
+        padding: 20,
         borderRadius: 30,
+    },
+
+    welcomeHeader: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginBottom: 20,
     },
 
     welcomeTitle: {
         fontSize: Dimensions.get('window').width > 600 ? 36 : 26,
         fontWeight: 'bold',
         color: 'white',
-        textAlign: 'center',
-        marginBottom: 20,
     },
 
     welcomeSubtitle: {
