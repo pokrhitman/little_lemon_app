@@ -23,6 +23,13 @@ const GlobalStyles = StyleSheet.create({
         width: windowWidth > 600 ? 500 : '100%',
     },
 
+    safeArea: {
+        flex: 1,
+        backgroundColor: '#FFF',
+    },
+
+
+
     // -------------------------------
     // 🧾 Form Inputs (Shared)
     // ------------------------------
@@ -129,8 +136,8 @@ const GlobalStyles = StyleSheet.create({
     // ------------------------------
 
     logo: {
-        width: Dimensions.get('window').width*0.10,
-        height: Dimensions.get('window').width*0.10,
+        width: 80,
+        height: 80,
         marginRight: 12,
     },
 
@@ -192,13 +199,8 @@ const GlobalStyles = StyleSheet.create({
     },
 
     bodyContainer: {
-        paddingHorizontal: 20,
         paddingTop: 20,
-        marginBottom: 20,
-    },
-
-    menuContainer: {
-        flex: 1,
+        backgroundColor: 'transparent',
     },
 
     footerOuter: {
@@ -357,16 +359,16 @@ const GlobalStyles = StyleSheet.create({
     },
 
     menuContainer: {
-        flex: 1,
-        backgroundColor: '#495E57',
-        paddingHorizontal: 3,
-        //maxWidth: 600,
-        width: '100%',
-        paddingTop: 0,
-        marginTop: -12,
         alignSelf: 'center',
+        width: '100%',
+        maxWidth: 600, 
+        paddingHorizontal: 20,
+        paddingVertical: 20,
+        backgroundColor: '#fff',
+        paddingHorizontal: 3,
         borderRadius: 20,
-        overflow: 'hidden',
+        borderWidth: 1,
+        borderColor: '#ddd',      
     },
 
     sectionHeader: {
@@ -406,10 +408,6 @@ const GlobalStyles = StyleSheet.create({
     // -----------------------------
 
     welcomeContainer: {
-        flex: 1,
-        justifyContent: 'center',
-        backgroundColor: '#660000',
-        alignItems: 'center',
         padding: 20,
         borderRadius: 30,
     },
