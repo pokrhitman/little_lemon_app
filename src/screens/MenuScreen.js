@@ -1,16 +1,19 @@
+import { useNavigation } from '@react-navigation/native';
 import { useContext } from 'react';
 import {
-    ScrollView,
     View,
     SectionList,
     Text,
+    Pressable,
 } from 'react-native';
 
 import GlobalStyles from '../styles/GlobalStyles';
 import { ThemeContext } from '../theme/ThemeContext';
 import { menuItemsToDisplay } from '../data/menuData';
 
+
 export default function MenuScreen() {
+    const navigation = useNavigation();
     const { theme } = useContext(ThemeContext);
     const { colors } = theme;
 
@@ -19,13 +22,19 @@ export default function MenuScreen() {
         const isLast = index === section.data.length - 1;
 
         return (
-            <View style={GlobalStyles.itemWrapper}>
+            <Pressable
+                onPress={() => navigation.navigate('MenuItemDetail', { item })}
+                style={({ pressed }) => [
+                    GlobalStyles.itemWrapper,
+                    pressed && { opacity: 0.6 }
+                ]}
+            >
                 <View style={GlobalStyles.itemContainer}>
                     <Text style={GlobalStyles.itemText}>{item.name}</Text>
                     <Text style={GlobalStyles.itemText}>{item.price}</Text>
                 </View>
                 {!isLast && <View style={GlobalStyles.separator} />}
-            </View>
+            </Pressable>
         );
     };
 
@@ -34,13 +43,13 @@ export default function MenuScreen() {
     );
 
     return (
-        <ScrollView
-            style={{ backgroundColor: colors.background }}
-            contentContainerStyle={{
-                paddingVertical: 20,
+        <View
+            style={{ 
+                flex: 1,
                 alignItems: 'center',
-            }}
-        >
+                backgroundColor: colors.background,
+                paddingVertical: 20
+            }}>
             <View
                 style={[
                     GlobalStyles.menuContainer,
@@ -48,7 +57,7 @@ export default function MenuScreen() {
                         backgroundColor: colors.background,
                         width: '100%',
                         maxWidth: 600,
-
+                        flex: 1,
                     },
                 ]}
             >
@@ -61,9 +70,10 @@ export default function MenuScreen() {
                         paddingTop: 0,
                         paddingBottom: 40,
                     }}
+                    style={{ flex: 1}}
                 />
             </View>
-        </ScrollView>
+        </View>
     );
 }
 
