@@ -21,10 +21,6 @@ export default function LoginScreen() {
             return;
         }
 
-        console.log('Email:', email);
-        console.log('Password:', password);
-        //Later send to auth service or validate locally
-
         setSubmitted(true);
         setEmail('');
         setPassword('');
@@ -34,62 +30,65 @@ export default function LoginScreen() {
     };
 
     return (
+        <View style={{ flex: 1, backgroundColor: '#FFF' }}>
+            <KeyboardAvoidingView
+                style={{ flex: 1 }}
+                behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+            >
 
-        <KeyboardAvoidingView
-            style={GlobalStyles.container}
-            behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-        >
+                <ScrollView 
+                contentContainerStyle={{ flexGrow: 1, justifyContent: 'center' }}
+                keyboardShouldPersistTaps="handled"
+                >
 
-            <ScrollView contentContainerStyle={GlobalStyles.scrollViewPadding}>
+                    <View style={GlobalStyles.loginContainer}>
+                        <Text style={GlobalStyles.loginHeaderText}>Welcome to Little Lemon</Text>
+                        <Text style={GlobalStyles.regularText}>Login to continue</Text>
 
-                <View style={GlobalStyles.loginContainer}>
+                        {submitted ? (
+                            <Text style={GlobalStyles.loginSuccessMessage}>
+                                You are logged in!
+                            </Text>
+                        ) : (
 
-                    <Text style={GlobalStyles.loginHeaderText}>Welcome to Little Lemon</Text>
-                    <Text style={GlobalStyles.regularText}>Login to continue</Text>
+                            <>
+                                <Text style={GlobalStyles.label}>Email</Text>
+                                <TextInput
+                                    style={[GlobalStyles.inputBase, GlobalStyles.input]}
+                                    value={email}
+                                    onChangeText={setEmail}
+                                    placeholder='Enter your email'
+                                    keyboardType='email-address'
+                                    autoCapitalize='none'
+                                    placeholderTextColor='#666'
+                                    clearButtonMode='while-editing'
+                                />
 
-                    {submitted ? (
-                        <Text style={GlobalStyles.loginSuccessMessage}>
-                            You are logged in!
-                        </Text>
-                    ) : (
+                                <Text style={GlobalStyles.label}>Password</Text>
+                                <TextInput
+                                    style={[GlobalStyles.inputBase, GlobalStyles.input]}
+                                    value={password}
+                                    onChangeText={setPassword}
+                                    placeholder='Enter your password'
+                                    secureTextEntry={true}
+                                    placeholderTextColor='#666'
+                                />
 
-                        <>
-                            <Text style={GlobalStyles.label}>Email</Text>
-                            <TextInput
-                                style={[GlobalStyles.inputBase, GlobalStyles.input]}
-                                value={email}
-                                onChangeText={setEmail}
-                                placeholder='Enter your email'
-                                keyboardType='email-address'
-                                autoCapitalize='none'
-                                placeholderTextColor='#666'
-                                clearButtonMode='while-editing'
-                            />
-
-                            <Text style={GlobalStyles.label}>Password</Text>
-                            <TextInput
-                                style={[GlobalStyles.inputBase, GlobalStyles.input]}
-                                value={password}
-                                onChangeText={setPassword}
-                                placeholder='Enter your password'
-                                secureTextEntry={true}
-                                placeholderTextColor='#666'
-                            />
-
-                            <Pressable
-                                onPress={handleLogin}
-                                style={({ pressed }) => [
-                                    GlobalStyles.loginButton,
-                                    pressed && GlobalStyles.loginButtonPressed,
-                                ]}
-                            >
-                                <Text style={GlobalStyles.loginButtonText}>Login</Text>
-                            </Pressable>
-                        </>
-                    )}
-                </View>
-            </ScrollView>
-        </KeyboardAvoidingView>
+                                <Pressable
+                                    onPress={handleLogin}
+                                    style={({ pressed }) => [
+                                        GlobalStyles.loginButton,
+                                        pressed && GlobalStyles.loginButtonPressed,
+                                    ]}
+                                >
+                                    <Text style={GlobalStyles.loginButtonText}>Login</Text>
+                                </Pressable>
+                            </>
+                        )}
+                    </View>
+                </ScrollView>
+            </KeyboardAvoidingView>
+        </View>
     );
 };
 

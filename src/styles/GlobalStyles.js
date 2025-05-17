@@ -23,13 +23,6 @@ const GlobalStyles = StyleSheet.create({
         width: windowWidth > 600 ? 500 : '100%',
     },
 
-    safeArea: {
-        flex: 1,
-        backgroundColor: '#FFF',
-    },
-
-
-
     // -------------------------------
     // 🧾 Form Inputs (Shared)
     // ------------------------------
@@ -161,29 +154,7 @@ const GlobalStyles = StyleSheet.create({
 
     safeArea: {
         flex: 1,
-        backgroundColor: '#333333',
-    },
-
-    navBar: {
-        flexDirection: 'row',
-        justifyContent: 'space-around',
-        paddingVertical: 10,
-        marginHorizontal: 20,
-        backgroundColor: '#EDEFEE',
-        borderRadius: 20,
-        marginBottom: 10,
-    },
-
-    navButton: {
-        paddingVertical: 10,
-        paddingHorizontal: 20,
-        backgroundColor: '#F4CE14',
-        borderRadius: 10,
-    },
-
-    navText: {
-        color: '#333',
-        fontWeight: 'bold',
+        backgroundColor: '#FFF',
     },
 
     headerOuter: {
@@ -365,7 +336,6 @@ const GlobalStyles = StyleSheet.create({
         paddingHorizontal: 20,
         paddingVertical: 20,
         backgroundColor: '#fff',
-        paddingHorizontal: 3,
         borderRadius: 20,
         borderWidth: 1,
         borderColor: '#ddd',      
@@ -401,6 +371,49 @@ const GlobalStyles = StyleSheet.create({
     separator: {
         height: 1,
         backgroundColor: '#EDEFEE',
+    },
+
+    // -------------------------------
+    // Menu Item Detail Card
+    // -----------------------------
+
+    menuDetailCard: {
+        margin: 24,
+        backgroundColor: '#fff',
+        borderRadius: 16,
+        padding: 24,
+        alignItems: 'center',
+        elevation: 4,
+        shadowColor: '#000',
+        shadowOpacity: 0.07,
+        shadowOffset: { width: 0, height: 2},
+        shadowRadius: 8,
+    },
+    menuDetailImage: {
+        width: 180,
+        height: 180,
+        borderRadius: 12,
+        marginBottom: 16,
+    },
+    menuDetailTitle: {
+        fontSize: 26,
+        fontWeight: 'bold',
+        marginBottom: 8,
+    },
+    menuDetailPrice: {
+        fontSize: 18,
+        color: '#666',
+        marginBottom: 12,
+    },
+    menuDetailDescription: {
+        fontSize: 16,
+        color: '#444',
+        textAlign: 'center',
+    },
+    menuDetailError: {
+        color: '#B22222',
+        fontSize: 18,
+        padding: 40,
     },
 
     // -------------------------------
