@@ -1,4 +1,4 @@
-import { ScrollView, View } from "react-native-web";
+import { ScrollView, View } from "react-native";
 import GlobalStyles from "../styles/GlobalStyles";
 import WelcomeCard from "../components/WelcomeCard";
 import { ThemeContext } from '../theme/ThemeContext';
