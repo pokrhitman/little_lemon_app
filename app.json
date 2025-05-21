@@ -19,10 +19,16 @@
       "adaptiveIcon": {
         "foregroundImage": "./src/assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.pokrhitman.littlelemonapp"
     },
     "web": {
       "favicon": "./src/assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "966ac10b-1535-4e86-83c2-1f0c9a344ec2"
+      }
     }
   }
 }

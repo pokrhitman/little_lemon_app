@@ -1,4 +1,4 @@
-export const lighTheme = {
+export const lightTheme = {
     colors: {
         background: '#FFFFFF',
         card: '#F4CE14',

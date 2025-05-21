@@ -1,16 +1,16 @@
 import {createContext, useState, useEffect} from 'react';
 import { Appearance } from 'react-native';
-import { lighTheme, darkTheme } from './themes';
+import { lightTheme, darkTheme } from './themes';
 
 export const ThemeContext = createContext({
-    theme: lighTheme,
+    theme: lightTheme,
     toggle: () => {},
 });
 
 export function ThemeProvider({ children}) {
     const colorScheme = Appearance.getColorScheme();
     const [theme, setTheme] = useState(
-        colorScheme === 'dark' ? darkTheme: lighTheme
+        colorScheme === 'dark' ? darkTheme: lightTheme
     );
 
     useEffect(() => {
