@@ -21,12 +21,14 @@
         "backgroundColor": "#ffffff"
       },
       "package": "com.pokrhitman.little_lemon_app"
+
     },
     "web": {
       "favicon": "./src/assets/favicon.png"
     },
     "extra": {
       "eas": {
+
         "projectId": "f75588d1-b75f-4ba5-b14b-534ce662b82e"
       }
     }
