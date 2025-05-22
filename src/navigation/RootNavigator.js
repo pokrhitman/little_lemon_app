@@ -21,13 +21,13 @@ export default function RootNavigator() {
                     headerShown: false,
                     tabBarIcon: ({ focused, color, size }) => {
                         let iconName;
-                        if (route.name === 'Home') {
+                        if (route.name === 'HomeTab') {
                             iconName = focused ? 'home' : 'home-outline';
-                        } else if (route.name === 'Menu') {
+                        } else if (route.name === 'MenuTab') {
                             iconName = focused ? 'restaurant' : 'restaurant-outline';
-                        } else if (route.name === 'Feedback') {
+                        } else if (route.name === 'FeedbackTab') {
                             iconName = focused ? 'chatbox' : 'chatbox-outline';
-                        } else if (route.name === 'Login') {
+                        } else if (route.name === 'LoginTab') {
                             iconName = focused ? 'person' : 'person-outline';
                         }
                         return <Ionicons name={iconName} size={size} color={color} />;
@@ -40,10 +40,10 @@ export default function RootNavigator() {
                 })}
             >
 
-                <Tab.Screen name="Home" component={HomeStack} />
-                <Tab.Screen name="Menu" component={MenuStack} />
-                <Tab.Screen name="Feedback" component={FeedbackScreen} />
-                <Tab.Screen name="Login" component={LoginScreen} />
+                <Tab.Screen name="HomeTab" component={HomeStack} />
+                <Tab.Screen name="MenuTab" component={MenuStack} />
+                <Tab.Screen name="FeedbackTab" component={FeedbackScreen} />
+                <Tab.Screen name="LoginTab" component={LoginScreen} />
 
             </Tab.Navigator>
             <LittleLemonFooter />

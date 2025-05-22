@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "FirstProject2",
-    "slug": "FirstProject2",
+    "name": "Little Lemon App",
+    "slug": "little_lemon_app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./src/assets/icon.png",
@@ -19,10 +19,16 @@
       "adaptiveIcon": {
         "foregroundImage": "./src/assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.pokrhitman.little_lemon_app"
     },
     "web": {
       "favicon": "./src/assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "f75588d1-b75f-4ba5-b14b-534ce662b82e"
+      }
     }
   }
 }
